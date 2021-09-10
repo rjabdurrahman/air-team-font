@@ -300,7 +300,7 @@ const Step4 = ({ setForm, formData, navigation }) => {
             >
               <div className="margin-top-20">
                 <a onClick={previous} className="CancelBtn">
-                  Previous
+                  Save Draft
                 </a>{" "}
                 <a className="SubmitBtn" onClick={checkValidation}>
                   Next

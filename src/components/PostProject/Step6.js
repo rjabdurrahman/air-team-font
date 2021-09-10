@@ -123,7 +123,7 @@ const Step6 = ({ setForm, formData, navigation }) => {
                 className="button gray ripple-effect button-sliding-icon"
                 onClick={previous}
               >
-                <i className="icon-feather-arrow-left"></i> Previous
+                <i className="icon-feather-arrow-left"></i> Save Draft
               </a>{" "}
               <a
                 className="button  ripple-effect button-sliding-icon"
