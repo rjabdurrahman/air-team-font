@@ -1,7 +1,6 @@
 /* eslint-disabled */
 import React, { useEffect, useRef } from "react";
-import Modal from "../../utils/Modal";
-import "./style.css";
+import { css } from '@emotion/css'
 
 // function Step1(props) {
 const Step1 = ({ setForm, formData, navigation }) => {
@@ -47,19 +46,20 @@ const Step1 = ({ setForm, formData, navigation }) => {
                   Your <b style={{ color: "#5dbbc7" }}>team</b> is waiting
                 </h1>
 
-                <h5 style={{ fontSize: "16px", color: "#3a3a3c !important" }}>
-                  Help the Account Director get the skill sets best suited to
-                  your project by giving some project details
+                <h5 className={css`
+                  font-family: Roboto;
+                  font-style: normal;
+                  font-weight: normal;
+                  font-size: 16px;
+                  line-height: 28px;
+                  text-align: justify;
+                  letter-spacing: 0.444444px;
+                  color: #6F87A0;
+                `}>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                  <div style={{height: '30px'}}></div>
+                  To help us find you the perfect team, we need you to fill out some details about your project. Just press the start button to begin!
                 </h5>
-              </div>
-
-              <div className="section-headline  margin-top-20">
-                <a className="button airteam_btn_dark_color" onClick={next}>
-                  Proceed
-                </a>
-                <a className="button press-Enter text-style-1">
-                  press <b>Enter</b>
-                </a>
               </div>
             </div>
           </div>
