@@ -573,15 +573,16 @@ const Step2 = ({ setForm, formData, navigation }) => {
               {/* display other project options */}
 
               {/* Form Buttons */}
-              <div className="something-container chk-form-group">
+              <div className="something-container">
                 {/*-----------------------------------------------*/}
                 <div style={{ marginTop: "20px", padding: "0px 0px" }}>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <div>
+                    <div className="chk-form-group" style={{ marginBottom: 0 }}>
                       <input
                         id="somethingCheck"
                         type="checkbox"
                         className="myCheck"
+                        style={{ display: 'none' }}
                         defaultChecked={false}
                         onChange={(event) => setSomething(event.target.checked)}
                       />
@@ -685,52 +686,53 @@ const Step2 = ({ setForm, formData, navigation }) => {
                               {errors.description}
                             </div>
                           </div>
+                          <div className="row">
+                            {/* email_id */}
+                            <div className="submit-field" className="col-12 col-md-6">
+                              <h5 className="air-team-h5">Email Id</h5>
+                              <input
+                                type="text"
+                                placeholder="Enter your company email ID."
+                                name="email_id"
+                                value={modalInputs.email_id}
+                                onChange={e => handleModelInput(e)}
+                                style={{
+                                  color: "#3a3a3c",
+                                  fontSize: "16px",
+                                  background: "#f5f9fa",
+                                  borderRadius: "4px"
+                                }}
+                              />
 
-                          {/* email_id */}
-                          <div className="submit-field">
-                            <h5 className="air-team-h5">Email Id</h5>
-                            <input
-                              type="text"
-                              placeholder="Enter your company email ID."
-                              name="email_id"
-                              value={modalInputs.email_id}
-                              onChange={e => handleModelInput(e)}
-                              style={{
-                                color: "#3a3a3c",
-                                fontSize: "16px",
-                                background: "#f5f9fa",
-                                borderRadius: "4px"
-                              }}
-                            />
-
-                            <div
-                              className="notification error  notification1 form-error"
-                              style={{ margin: "0 15px !important" }}
-                            >
-                              {errors.email_id}
+                              <div
+                                className="notification error  notification1 form-error"
+                                style={{ margin: "0 15px !important" }}
+                              >
+                                {errors.email_id}
+                              </div>
                             </div>
-                          </div>
-                          {/* email_id */}
+                            {/* email_id */}
 
-                          {/* contact_no */}
-                          <div className="submit-field">
-                            <h5 className="air-team-h5">Contact Number (Optional)</h5>
-                            <input
-                              type="text"
-                              placeholder="Enter your contact number."
-                              name="contact_no"
-                              value={modalInputs.contact_no}
-                              onChange={e => handleModelInput(e)}
-                            />
+                            {/* contact_no */}
+                            <div className="submit-field" className="col-12 col-md-6">
+                              <h5 className="air-team-h5">Contact Number (Optional)</h5>
+                              <input
+                                type="text"
+                                placeholder="Enter your contact number."
+                                name="contact_no"
+                                value={modalInputs.contact_no}
+                                onChange={e => handleModelInput(e)}
+                              />
 
-                            <div
-                              className="notification error  notification1 form-error"
-                              style={{ margin: "0 15px !important" }}
-                            >
-                              {errors.contact_no}
+                              <div
+                                className="notification error  notification1 form-error"
+                                style={{ margin: "0 15px !important" }}
+                              >
+                                {errors.contact_no}
+                              </div>
                             </div>
+                            {/* contact_no */}
                           </div>
-                          {/* contact_no */}
                         </div>
                       </div>
                     </div>
