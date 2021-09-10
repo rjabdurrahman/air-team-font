@@ -744,12 +744,9 @@ const Step2 = ({ setForm, formData, navigation }) => {
                 </div>
               </div>
               <div className="margin-top-20">
-                {/* <a
-                  className="button gray ripple-effect button-sliding-icon"
-                  onClick={previous}
-                >
-                  <i className="icon-feather-arrow-left"></i> Previous
-                </a>{" "} */}
+                <a onClick={previous} className="CancelBtn">
+                  Save Draft
+                </a>{" "}
                 <a
                   className="SubmitBtn"
                   onClick={checkValidation}
