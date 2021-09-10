@@ -145,7 +145,7 @@ const Step2 = ({ setForm, formData, navigation }) => {
   const [selectedSubCategories, setSelectedSubCategories] = useState(
     formData.subCategories
   );
-  const [checked, setChecked] = useState(false);
+  const [isSomething, setSomething] = useState(false);
   const [dispSubCat, setDispSubCat] = useState();
   const [otherProject, setOtherProject] = useState(formData.other_project);
 
@@ -573,22 +573,36 @@ const Step2 = ({ setForm, formData, navigation }) => {
               {/* display other project options */}
 
               {/* Form Buttons */}
-              <div className="categories-container">
+              <div className="something-container chk-form-group">
                 {/*-----------------------------------------------*/}
                 <div style={{ marginTop: "20px", padding: "0px 0px" }}>
-                  <span className="margin-top-30"
-                    style={{
-                      color: "#6F87A0",
-                      fontSize: "16px",
-                      fontWeight: "500",
-                      lineHeight: '24px',
-                      cursor: "pointer"
-                    }}
-                  >
-                    Looking for something not on the list?
-                  </span>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div>
+                      <input
+                        id="somethingCheck"
+                        type="checkbox"
+                        className="myCheck"
+                        defaultChecked={false}
+                        onChange={(event) => setSomething(event.target.checked)}
+                      />
+                      <label htmlFor="somethingCheck" style={{ marginBottom: 0, marginRight: '8px' }}></label>
+                    </div>
+                    <div>
+                      <span className="margin-top-30"
+                        style={{
+                          color: "#6F87A0",
+                          fontSize: "16px",
+                          fontWeight: "500",
+                          lineHeight: '24px',
+                          cursor: "pointer"
+                        }}
+                      >
+                        Looking for something not on the list?
+                      </span>
+                    </div>
+                  </div>
                   {/* Something Start */}
-                  <div className="section" style={{marginTop: '30px'}}>
+                  {isSomething && <div className="section" style={{ marginTop: '30px' }}>
                     <div className="container">
                       <div className="row">
                         <div className="col-md-12" style={{ padding: 0 }}>
@@ -720,7 +734,7 @@ const Step2 = ({ setForm, formData, navigation }) => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div>}
                   {/* Soemthing End */}
                   <div className="notification error  notification1 form-error">
                     {errors.category_id}
