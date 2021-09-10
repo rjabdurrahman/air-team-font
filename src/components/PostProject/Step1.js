@@ -31,7 +31,7 @@ const Step1 = ({ setForm, formData, navigation }) => {
 
   return (
     <>
-      <div className="section" style={{ margin: "100px auto", height: '100vh' }}>
+      <div className="section" style={{ margin: "100px auto", height: 'calc(100vh - 200px)' }}>
         <div className="container">
           <div className="row">
             <div className="col-xl-8 col-md-8 offset-md-2">

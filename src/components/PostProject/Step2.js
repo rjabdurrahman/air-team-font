@@ -417,7 +417,7 @@ const Step2 = ({ setForm, formData, navigation }) => {
     }
   };
   return (
-    <>
+    <div style={{minHeight: '100vh'}}>
       {/* Category Boxes */}
       <style>
         {
@@ -791,7 +791,7 @@ const Step2 = ({ setForm, formData, navigation }) => {
           </div>
         </LoadingOverlay>
       </Modal>
-    </>
+    </div>
   );
 };
 
