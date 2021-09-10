@@ -120,7 +120,10 @@ const Postproject = ({ images }) => {
 
   switch (id) {
     case "Step1":
-      return <Step1 {...props} />;
+      return (<>
+        <Step1 {...props} />
+        <Step2 {...props} />
+      </>);
     case "Step2":
       return <Step2 {...props} />;
     case "Step3":
