@@ -99,7 +99,7 @@ export default function Signin(props) {
             ".modal-box{padding:10px 30px !important} .submit-field{margin-bottom:10px}"
           }
         </style>
-        <div class="nav_ligin ">
+        <div className="nav_ligin ">
           <nav id="navigation">
             <ul id="responsive">
               <li>

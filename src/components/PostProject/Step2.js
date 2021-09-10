@@ -43,7 +43,7 @@ const displaySubCategories = (
             >
               {cat.name}
             </h5>
-            <p>
+            <div>
               <label
                 id={`lbl_${cat._id}`}
                 style={{
@@ -77,7 +77,7 @@ const displaySubCategories = (
                   <span className="switch-button"></span>
                 </label>
               </div>
-            </p>
+            </div>
 
             <div
               id={`mainCat_${cat._id}`}
@@ -492,7 +492,7 @@ const Step2 = ({ setForm, formData, navigation }) => {
                     //   <i></i>
                     // </span>
 
-                    <span className="keyword">
+                    <span key={'chip_' + chip.name} className="keyword">
                       <span
                         className="keyword-remove"
                         style={{ float: "right" }}

@@ -27,7 +27,7 @@ const Breadcrumb = ({ navigation, currentTab }) => {
           "
         }
       </style>
-      <dic className="container margin-top-15" style={{ display: "block" }}>
+      <div className="container margin-top-15" style={{ display: "block" }}>
         <div className="row" style={{ borderBottom: "1px solid #e2f0f1" }}>
           <div className="col-xl-6 col-md-6 ">
             <nav id="breadcrumbs" style={{ background: "#fff" }}>
@@ -121,7 +121,7 @@ const Breadcrumb = ({ navigation, currentTab }) => {
             </Link>
           </div>
         </div>
-      </dic>
+      </div>
     </div>
   );
 };
