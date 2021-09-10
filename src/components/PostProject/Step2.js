@@ -74,7 +74,7 @@ const displaySubCategories = (
                     onChange={() => handleSwitchChange(cat._id)}
                     defaultChecked={isSelected}
                   />
-                  <span className="switch-button" />
+                  <span className="switch-button"></span>
                 </label>
               </div>
             </p>
