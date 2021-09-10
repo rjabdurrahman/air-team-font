@@ -743,7 +743,7 @@ const Step2 = ({ setForm, formData, navigation }) => {
                   </div>
                 </div>
               </div>
-              <div className="margin-top-20">
+              <div className="margin-top-20" style={{display: 'flex', justifyContent: 'flex-end', gap: '20px'}}>
                 <a onClick={previous} className="CancelBtn">
                   Save Draft
                 </a>{" "}
