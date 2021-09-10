@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import Modal from "../../utils/Modal";
 import LoadingOverlay from "react-loading-overlay";
 import { NotificationManager } from "react-notifications";
 import submitSomethingElse from "./SubmitSomethingElse";
@@ -83,7 +82,7 @@ const displaySubCategories = (
               id={`mainCat_${cat._id}`}
               className={"row " + (isSelected ? "disabled" : " ")}
               style={{ margin: 0, padding: 0 }}
-              // disabled={isSelected === true ? "disabled" : ""}
+            // disabled={isSelected === true ? "disabled" : ""}
             >
               {SubCategories.length > 0 &&
                 SubCategories.map((subCat, sIdx) => {
@@ -107,9 +106,9 @@ const displaySubCategories = (
                           className="myCheck"
                           defaultChecked={
                             selectedSubCategories.length > 0 &&
-                            selectedSubCategories.findIndex(
-                              x => x === subCat.id
-                            ) > -1
+                              selectedSubCategories.findIndex(
+                                x => x === subCat.id
+                              ) > -1
                               ? true
                               : ""
                           }
@@ -154,7 +153,6 @@ const Step2 = ({ setForm, formData, navigation }) => {
   const [teamSuggestion, setTeamSuggestion] = useState(formData.teamSuggestion);
 
   // Something Else Modal
-  const modalSomethingRef = useRef();
   const [modalInputs, setModalInputs] = useState({
     title: "",
     description: "",
@@ -198,14 +196,6 @@ const Step2 = ({ setForm, formData, navigation }) => {
 
       // console.log("modalInputs", modalInputs);
     }
-  };
-
-  const openSomething = () => {
-    modalSomethingRef.current.open();
-  };
-
-  const closeSomething = () => {
-    modalSomethingRef.current.close();
   };
 
   useEffect(() => {
@@ -417,7 +407,7 @@ const Step2 = ({ setForm, formData, navigation }) => {
     }
   };
   return (
-    <div style={{minHeight: '100vh'}}>
+    <div style={{ minHeight: '100vh' }}>
       {/* Category Boxes */}
       <style>
         {
@@ -516,7 +506,7 @@ const Step2 = ({ setForm, formData, navigation }) => {
 
               {/* display other project options */}
               {otherProjectOptions !== undefined &&
-              otherProjectOptions.length > 0 ? (
+                otherProjectOptions.length > 0 ? (
                 <div className="categories-container margin-top-25">
                   <h5
                     style={{
@@ -586,20 +576,152 @@ const Step2 = ({ setForm, formData, navigation }) => {
               <div className="categories-container">
                 {/*-----------------------------------------------*/}
                 <div style={{ marginTop: "20px", padding: "0px 0px" }}>
-                  <span className="freelancer-detail-item margin-top-30">
-                    <a
-                      onClick={openSomething}
-                      style={{
-                        color: "#ffb92a",
-                        fontSize: "18px",
-                        fontWeight: "500",
-                        lineHeight: 1.67,
-                        cursor: "pointer"
-                      }}
-                    >
-                      Looking for something not on the list?
-                    </a>
+                  <span className="margin-top-30"
+                    style={{
+                      color: "#6F87A0",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                      lineHeight: '24px',
+                      cursor: "pointer"
+                    }}
+                  >
+                    Looking for something not on the list?
                   </span>
+                  {/* Something Start */}
+                  <div className="section" style={{marginTop: '30px'}}>
+                    <div className="container">
+                      <div className="row">
+                        <div className="col-md-12" style={{ padding: 0 }}>
+                          <div
+                            className="section-headline  margin-bottom-15"
+                            style={{ paddingRight: "0" }}
+                          >
+                            <h5
+                              style={{
+                                fontSize: "22px",
+                                color: "#2e3a59",
+                                lineHeight: 1.45
+                              }}
+                            >
+                              Tell us about your project.
+                              <p
+                                style={{
+                                  lineHeight: 1.43,
+                                  fontSize: "16px",
+                                  fontWeight: "normal",
+                                  fontFamily: "Roboto",
+                                  textAlign: "justify",
+                                  letterSpacing: "normal"
+                                }}
+                              >
+                                <small>
+                                  Share a few details about the project you need to get
+                                  done, the industry it is related to and the time frame
+                                  within which you need it completed. We'll get back to
+                                  you with the availiability of individuals/teams best
+                                  suited to it
+                                </small>
+                              </p>
+                            </h5>
+                          </div>
+                          <div className="submit-field">
+                            <h5 className="air-team-h5">
+                              Project Type{" "}
+                              {/* <span
+                className="notification error  notification1 form-error"
+                style={{ margin: "0 15px !important" }}
+                >
+                {errors.project_type}
+                </span> */}
+                            </h5>
+                            <input
+                              type="text"
+                              placeholder="Enter your project type..."
+                              name="project_type"
+                              value={modalInputs.project_type}
+                              onChange={e => handleModelInput(e)}
+                              style={{
+                                color: "#3a3a3c !important",
+                                fontSize: "16px",
+                                background: "#f5f9fa  !important",
+                                borderRadius: "4px"
+                              }}
+                            />
+
+                            <div
+                              className="notification error  notification1 form-error"
+                              style={{ margin: "0 15px !important" }}
+                            >
+                              {errors.project_type}
+                            </div>
+                          </div>
+
+                          <div className="submit-field">
+                            <h5 className="air-team-h5">Project Description</h5>
+                            <textarea
+                              placeholder="What is your project all about? Give us a few basic details."
+                              name="description"
+                              value={modalInputs.description}
+                              onChange={e => handleModelInput(e)}
+                            />
+                            <div
+                              className="notification error  notification1 form-error"
+                              style={{ margin: "0 15px !important" }}
+                            >
+                              {errors.description}
+                            </div>
+                          </div>
+
+                          {/* email_id */}
+                          <div className="submit-field">
+                            <h5 className="air-team-h5">Email Id</h5>
+                            <input
+                              type="text"
+                              placeholder="Enter your company email ID."
+                              name="email_id"
+                              value={modalInputs.email_id}
+                              onChange={e => handleModelInput(e)}
+                              style={{
+                                color: "#3a3a3c",
+                                fontSize: "16px",
+                                background: "#f5f9fa",
+                                borderRadius: "4px"
+                              }}
+                            />
+
+                            <div
+                              className="notification error  notification1 form-error"
+                              style={{ margin: "0 15px !important" }}
+                            >
+                              {errors.email_id}
+                            </div>
+                          </div>
+                          {/* email_id */}
+
+                          {/* contact_no */}
+                          <div className="submit-field">
+                            <h5 className="air-team-h5">Contact Number (Optional)</h5>
+                            <input
+                              type="text"
+                              placeholder="Enter your contact number."
+                              name="contact_no"
+                              value={modalInputs.contact_no}
+                              onChange={e => handleModelInput(e)}
+                            />
+
+                            <div
+                              className="notification error  notification1 form-error"
+                              style={{ margin: "0 15px !important" }}
+                            >
+                              {errors.contact_no}
+                            </div>
+                          </div>
+                          {/* contact_no */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Soemthing End */}
                   <div className="notification error  notification1 form-error">
                     {errors.category_id}
                   </div>
@@ -627,170 +749,6 @@ const Step2 = ({ setForm, formData, navigation }) => {
         </div>
       </LoadingOverlay>
       {/* Category Boxes / End */}
-
-      <Modal ref={modalSomethingRef}>
-        <LoadingOverlay active={loader} spinner text="Loading...">
-          <div className="section">
-            <div className="container">
-              <div className="row">
-                <div
-                  className="section-headline  margin-bottom-5"
-                  style={{
-                    padding: "0",
-                    textAlign: "right",
-                    width: "100%",
-                    cursor: "pointer"
-                  }}
-                >
-                  <i
-                    className="icon-line-awesome-close"
-                    onClick={closeSomething}
-                  ></i>
-                </div>
-                <div className="col-md-12">
-                  <div
-                    className="section-headline  margin-bottom-15"
-                    style={{ paddingRight: "0" }}
-                  >
-                    <h5
-                      style={{
-                        fontSize: "22px",
-                        color: "#2e3a59",
-                        lineHeight: 1.45
-                      }}
-                    >
-                      Tell us about your project.
-                      <p
-                        style={{
-                          lineHeight: 1.43,
-                          fontSize: "16px",
-                          fontWeight: "normal",
-                          fontFamily: "Roboto",
-                          textAlign: "justify",
-                          letterSpacing: "normal"
-                        }}
-                      >
-                        <small>
-                          Share a few details about the project you need to get
-                          done, the industry it is related to and the time frame
-                          within which you need it completed. We'll get back to
-                          you with the availiability of individuals/teams best
-                          suited to it
-                        </small>
-                      </p>
-                    </h5>
-                  </div>
-                  <div className="submit-field">
-                    <h5 className="air-team-h5">
-                      Project Type{" "}
-                      {/* <span
-                        className="notification error  notification1 form-error"
-                        style={{ margin: "0 15px !important" }}
-                      >
-                        {errors.project_type}
-                      </span> */}
-                    </h5>
-                    <input
-                      type="text"
-                      placeholder="Enter your project type..."
-                      name="project_type"
-                      value={modalInputs.project_type}
-                      onChange={e => handleModelInput(e)}
-                      style={{
-                        color: "#3a3a3c !important",
-                        fontSize: "16px",
-                        background: "#f5f9fa  !important",
-                        borderRadius: "4px"
-                      }}
-                    />
-
-                    <div
-                      className="notification error  notification1 form-error"
-                      style={{ margin: "0 15px !important" }}
-                    >
-                      {errors.project_type}
-                    </div>
-                  </div>
-
-                  <div className="submit-field">
-                    <h5 className="air-team-h5">Project Description</h5>
-                    <textarea
-                      placeholder="What is your project all about? Give us a few basic details."
-                      name="description"
-                      value={modalInputs.description}
-                      onChange={e => handleModelInput(e)}
-                    />
-                    <div
-                      className="notification error  notification1 form-error"
-                      style={{ margin: "0 15px !important" }}
-                    >
-                      {errors.description}
-                    </div>
-                  </div>
-
-                  {/* email_id */}
-                  <div className="submit-field">
-                    <h5 className="air-team-h5">Email Id</h5>
-                    <input
-                      type="text"
-                      placeholder="Enter your company email ID."
-                      name="email_id"
-                      value={modalInputs.email_id}
-                      onChange={e => handleModelInput(e)}
-                      style={{
-                        color: "#3a3a3c",
-                        fontSize: "16px",
-                        background: "#f5f9fa",
-                        borderRadius: "4px"
-                      }}
-                    />
-
-                    <div
-                      className="notification error  notification1 form-error"
-                      style={{ margin: "0 15px !important" }}
-                    >
-                      {errors.email_id}
-                    </div>
-                  </div>
-                  {/* email_id */}
-
-                  {/* email_id */}
-                  <div className="submit-field">
-                    <h5 className="air-team-h5">Contact Number (Optional)</h5>
-                    <input
-                      type="text"
-                      placeholder="Enter your contact number."
-                      name="contact_no"
-                      value={modalInputs.contact_no}
-                      onChange={e => handleModelInput(e)}
-                    />
-
-                    <div
-                      className="notification error  notification1 form-error"
-                      style={{ margin: "0 15px !important" }}
-                    >
-                      {errors.contact_no}
-                    </div>
-                  </div>
-                  {/* email_id */}
-
-                  <div
-                    className="submit-field margin-top-25"
-                    style={{ textAlign: "right" }}
-                  >
-                    <a className="CancelBtn" onClick={closeSomething}>
-                      Cancel
-                    </a>{" "}
-                    <a className=" SubmitBtn " onClick={submitSomeoneRequest}>
-                      Submit
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </LoadingOverlay>
-      </Modal>
     </div>
   );
 };
