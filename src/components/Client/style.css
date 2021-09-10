@@ -1,0 +1,26 @@
+.dashboard-sidebar-icon{
+    font-size: 500px;
+    color: #2e3a59;
+    font-weight: bold;
+}
+
+.dashboard-select-bg{
+    background-color: #f1f7f9;
+    z-index: 0;
+}
+
+.dashboard-sidebar-hover:hover {
+    background-color: #f1f7f9;
+}
+
+.dashboard-main-heading{
+    color: #2e3a59;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.dashboard-small-text{
+    color: #3a3a3c;
+    font-size: 16px;
+    font-weight: normal;
+}

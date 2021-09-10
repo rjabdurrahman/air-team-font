@@ -1,0 +1,58 @@
+.searchbarButton {
+  background-color: white !important;
+  padding-left: 5%;
+  font-size: 18px;
+  color: #a5a5a6;
+}
+
+input[type="text"] {
+  background-color: white;
+  font-size: 14px;
+}
+
+.list-view {
+  display: inline-block;
+}
+
+.list-view a {
+  display: inline-block;
+  color: #2e3a59 !important;
+  font-weight: bold;
+  padding: 0 20px;
+  font-size: 28px;
+  text-decoration: none;
+}
+
+.projectbox-heading {
+  font-size: 20px;
+  font-weight: 500;
+  color: #2e3a59 !important;
+}
+
+.projectbox-id {
+  font-size: 16px;
+  color: #a5a5a6 !important;
+  letter-spacing: 0.2px;
+  font-weight: normal;
+}
+
+.projectbox-smallheading {
+  color: #2e3a59 !important;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.cool-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #5dbbc7;
+  transition: width 0.3s;
+  border-bottom: none;
+}
+
+.cool-link:hover::after {
+  width: 110%;
+  transition: width 0.3s;
+}
