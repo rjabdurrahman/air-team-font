@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import Modal from "../../utils/Modal";
 import { Link } from "react-router-dom";
 
 function NewHome(props) {
+  const mdlConfidentiality = useRef();
+
+  const openConfMdl = () => {
+    if (mdlConfidentiality.current != undefined)
+      mdlConfidentiality.current.open();
+  };
+
+  const closeConfMdl = () => {
+    if (mdlConfidentiality.current != undefined)
+      mdlConfidentiality.current.close();
+  };
   return (
     <>
       <div
@@ -23,14 +35,12 @@ function NewHome(props) {
                     desirable results.
                   </span>
                 </h3>
-                <Link to="/postProject">
-                  <button
-                    style={{ marginTop: "15px" }}
-                    className="button ripple-effect"
-                  >
-                    Post a Project
-                  </button>
-                </Link>
+                <button onClick={openConfMdl}
+                  style={{ marginTop: "15px" }}
+                  className="button ripple-effect"
+                >
+                  Post a Project
+                </button>
               </div>
             </div>
             <div className="col-md-4">
@@ -693,6 +703,64 @@ function NewHome(props) {
           </div>
         </div>
       </div>
+      <style>
+        {
+          "\
+          .modal-box { max-width: 358px !important;text-align:center;cursor:pointer}\
+        "
+        }
+      </style>
+      <Modal ref={mdlConfidentiality}>
+        <i
+          className="icon-line-awesome-close"
+          onClick={closeConfMdl}
+          style={{ float: "right", color: "#666", fontWeight: 600 }}
+        ></i>
+        <div
+          className="categories-container margin-bottom-15 margin-top-50"
+          style={{ display: "block" }}
+        >
+          <img src="images/icons/shield.png" />
+
+          <h5
+            className="margin-top-10"
+            style={{ fontWeight: 600, lineHeight: 1.45, fontSize: "22px" }}
+          >
+            Confidentiality
+          </h5>
+          <p
+            style={{ fontSize: "14px", lineHeight: 1.43, fontWeight: "normal" }}
+          >
+            We understand privacy is important to you and maintaining the
+            confidentiality of your data is our priority. Rest assured none of
+            the project details entered will be saved until you log in to your
+            Air Teams account. Once you log in, Your project details will remain
+            confidential and secure on our servers.
+          </p>
+
+          <a
+            className="margin-top-15 margin-bottom-15"
+            href=""
+            style={{
+              display: "block",
+              color: "#2dbdc9",
+              textDecoration: "underline",
+              lineHeight: "1.78",
+              fontWeight: 500
+            }}
+          >
+            Visit Privacy Page
+          </a>
+          <Link to="/postProject">
+            <button
+              className="button ripple-effect margin-top-10"
+              style={{ width: "100%", fontSize: "16px", fontWeight: "600" }}
+            >
+              Got It
+            </button>
+          </Link>
+        </div>
+      </Modal>
     </>
   );
 }
